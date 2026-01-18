@@ -24,7 +24,7 @@ def perform_frequency_analysis(text: str) -> FrequencyAnalysisResult:
         if __LOWER_ALPHA_STARTPOINT <= ord(char) <= __LOWER_ALPHA_ENDPOINT:
             analyzed_text += char
             char_frequency[char] += 1
-    return FrequencyAnalysisResult(text, char_frequency)
+    return FrequencyAnalysisResult(analyzed_text, char_frequency)
 
 def __create_init_dict() -> dict[str, int]:
     """英小文字（a〜z）をキー、出現回数の初期値 0 を値とする辞書を生成する.  
