@@ -6,15 +6,14 @@ from frequency_analysis import FrequencyAnalysisResult
 
 class AnalysisResultArea(tk.Frame):
     def __init__(self, master: tk.Misc, textvariable: tk.StringVar | None = None):
-        super().__init__(
-            master,
-        )
-        self.__output_textbox = OutputConsole(
-            self,
-        )
-        self.__output_textbox.pack(side="left", fill="both", expand=True)
+        super().__init__(master)
+        self.__output_textbox = OutputConsole(self)
         self.__graph = AnalysisResultGraph(self)
-        self.__graph.pack(side="left", fill="both", expand=True)
+        self.grid_columnconfigure(0, weight=1, uniform="analysis")
+        self.grid_columnconfigure(1, weight=1, uniform="analysis")
+        self.grid_rowconfigure(0, weight=1, uniform="analysis")
+        self.__output_textbox.grid(row=0, column=0, sticky="nsew")
+        self.__graph.grid(row=0, column=1, sticky="nsew")
     
     def set_output(self, result: FrequencyAnalysisResult):
         self.__output_textbox.set_text(result.analyzed_text)
