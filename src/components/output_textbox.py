@@ -8,5 +8,7 @@ class OutputConsole(tk.Text):
         )
     
     def set_text(self, text: str):
-        #self.delete("1.0", "end")
+        self.configure(state="normal")
+        self.delete("1.0", "end")
         self.insert("1.0", text)
+        self.configure(state="disabled")
