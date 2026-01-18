@@ -2,7 +2,7 @@ import tkinter as tk
 from PIL import ImageTk
 
 from frequency_analysis import FrequencyAnalysisResult
-from .uneditable_text import ReadOnlyTextBox
+from .readonly_textbox import ReadOnlyTextBox
 
 class AnalysisResultArea(tk.Frame):
     """

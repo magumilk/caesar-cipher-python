@@ -1,7 +1,7 @@
 import tkinter as tk
 
 from .output_analysis_result import AnalysisResultArea, FrequencyAnalysisResult
-from .uneditable_text import ReadOnlyTextBox
+from .readonly_textbox import ReadOnlyTextBox
 
 
 class OutputConsole(tk.Frame):
