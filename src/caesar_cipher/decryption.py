@@ -1,6 +1,6 @@
-from ceasar_cipher.utils import shift_char, is_lower_alpha
+from caesar_cipher.utils import shift_char, is_lower_alpha
 
-def descrypt(text: str, key: int) -> str:
+def decrypt(text: str, key: int) -> str:
     """シーザー暗号を用いて文字列を復号する.
     
     Args:
