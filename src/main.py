@@ -3,7 +3,7 @@ from tkinter.font import nametofont
 
 from caesar_cipher import encrypt, decrypt
 from frequency_analysis import perform_frequency_analysis
-from components import LabeledTextBox, OutputConsole, ShiftScale
+from widgets import LabeledTextBox, OutputConsole, ShiftScale
 
 def main():
 
