@@ -2,6 +2,7 @@ __UPPER_ALPHA_STARTPOINT = 65
 __UPPER_ALPHA_ENDPOINT = 90
 __LOWER_ALPHA_STARTPOINT = 97
 __LOWER_ALPHA_ENDPOINT = 122
+__ALPHABET_LENGTH = __LOWER_ALPHA_ENDPOINT - __LOWER_ALPHA_STARTPOINT + 1
 
 
 def shift_char(char: str, shift: int) -> str:
@@ -17,7 +18,9 @@ def shift_char(char: str, shift: int) -> str:
     Returns:
         str: ずらした文字
     """
-    return chr(ord(char) + shift)
+    s = __UPPER_ALPHA_STARTPOINT if is_upper_alpha(char) else __LOWER_ALPHA_STARTPOINT
+    e = __UPPER_ALPHA_ENDPOINT if is_upper_alpha(char) else __LOWER_ALPHA_ENDPOINT
+    return chr(s + ((ord(char) - s + shift) % __ALPHABET_LENGTH))
 
 
 def is_lower_alpha(char: str) -> bool:
