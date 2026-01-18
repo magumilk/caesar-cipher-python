@@ -37,6 +37,7 @@ class FrequencyAnalysisResult:
         ofs = BytesIO()
         fig.savefig(ofs, format="png")
         plt.close()
+        ofs.seek(0)  # ファイルの先頭に移動
 
         return ImageTk.PhotoImage(Image.open(ofs))
 

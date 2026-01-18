@@ -28,8 +28,10 @@ class AnalysisResultGraph(tk.Canvas):
             master,
         )
         self.__image_id: int | None = None
+        self.__photo: ImageTk.PhotoImage | None = None
     
     def set_graph(self, graph: ImageTk.PhotoImage):
+        self.__photo = graph
         if self.__image_id is not None:
             self.delete(self.__image_id)
-        self.__image_id =self.create_image(0, 0, anchor="nw", image=graph)
+        self.__image_id = self.create_image(0, 0, anchor="nw", image=self.__photo)
