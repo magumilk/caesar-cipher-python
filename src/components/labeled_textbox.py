@@ -1,6 +1,6 @@
 import tkinter as tk
 
-class TextBox(tk.Frame):
+class LabeledTextBox(tk.Frame):
     def __init__(self, master: tk.Misc, title: str | None = None):
         super().__init__(
             master,

@@ -3,7 +3,7 @@ from tkinter.font import nametofont
 
 from caesar_cipher import encrypt, decrypt
 from frequency_analysis import perform_frequency_analysis
-from components import TextBox, OutputConsole, ShiftScale
+from components import LabeledTextBox, OutputConsole, ShiftScale
 
 def main():
 
@@ -33,8 +33,8 @@ def main():
     input_area.grid_columnconfigure(1, weight=2, uniform="input")
     input_area.grid_rowconfigure(0, weight=1)
     # ウィジェットを生成して配置
-    input_textbox = TextBox(input_area, "Input")
-    memo = TextBox(input_area, "Memo")
+    input_textbox = LabeledTextBox(input_area, "Input")
+    memo = LabeledTextBox(input_area, "Memo")
     input_textbox.grid(row=0, column=0, sticky="nsew")
     memo.grid(row=0, column=1, sticky="nsew")
 
