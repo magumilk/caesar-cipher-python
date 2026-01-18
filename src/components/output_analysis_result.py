@@ -1,13 +1,13 @@
 import tkinter as tk
 from PIL import ImageTk
 
-from components.output_textbox import OutputConsole
 from frequency_analysis import FrequencyAnalysisResult
+from .uneditable_text import UneditableText
 
 class AnalysisResultArea(tk.Frame):
-    def __init__(self, master: tk.Misc, textvariable: tk.StringVar | None = None):
+    def __init__(self, master: tk.Misc):
         super().__init__(master)
-        self.__output_textbox = OutputConsole(self)
+        self.__output_textbox = UneditableText(self)
         self.__graph = AnalysisResultGraph(self)
         self.grid_columnconfigure(0, weight=1, uniform="analysis")
         self.grid_columnconfigure(1, weight=1, uniform="analysis")

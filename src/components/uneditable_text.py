@@ -1,11 +1,8 @@
 import tkinter as tk
 
-class OutputConsole(tk.Text):
+class UneditableText(tk.Text):
     def __init__(self, master: tk.Misc):
-        super().__init__(
-            master,
-            state="disabled",
-        )
+        super().__init__(master, state="disabled")
     
     def set_text(self, text: str):
         self.configure(state="normal")
