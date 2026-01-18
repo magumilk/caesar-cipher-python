@@ -14,10 +14,14 @@ def main():
     config_area = tk.Frame(root)
     output_area = tk.Frame(root)
 
+    # 入力テキストボックスとメモ用テキストボックスの横幅の比が7:1になるようにグリッドの重みを設定
+    input_area.grid_columnconfigure(0, weight=7)
+    input_area.grid_columnconfigure(1, weight=1)
+    
     input_textbox = TextBox(input_area, "Input")
     memo = TextBox(input_area, "Memo")
-    input_textbox.grid(row=0, column=0, columnspan=7, sticky="nsew")
-    memo.grid(row=0, column=8, sticky="nsew")
+    input_textbox.grid(row=0, column=0, sticky="nsew")
+    memo.grid(row=0, column=1, sticky="nsew")
 
     output_textbox = OutputConsole(output_area)
     analysis_result_area = AnalysisResultArea(output_area)
