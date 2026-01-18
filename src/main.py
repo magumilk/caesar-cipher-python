@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter.font import nametofont
 
 from caesar_cipher import encrypt, decrypt
-from frequency_analysis import perform_frequency_analysis
+from frequency_analysis import execute_frequency_analysis
 from widgets import LabeledTextBox, OutputConsole, ShiftScale
 
 def main():
@@ -49,7 +49,7 @@ def main():
         output_area.set_output(plaintext)
     # 頻度分析ボタンの押下処理
     def frequency_analysis_button_handler():
-        output_area.set_output(perform_frequency_analysis(input_textbox.get_text()))
+        output_area.set_output(execute_frequency_analysis(input_textbox.get_text()))
 
     # 操作エリアの定義
     # ウィジェットの生成

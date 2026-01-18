@@ -5,7 +5,7 @@ from frequency_analysis.frequency_analysis_result import FrequencyAnalysisResult
 __LOWER_ALPHA_STARTPOINT = 97
 __LOWER_ALPHA_ENDPOINT = __LOWER_ALPHA_STARTPOINT + 26 - 1
 
-def perform_frequency_analysis(text: str) -> FrequencyAnalysisResult:
+def execute_frequency_analysis(text: str) -> FrequencyAnalysisResult:
     """与えられた文字列に対して頻度分析を行う.
 
     入力文字列から英小文字（a〜z）のみを抽出し,  

@@ -1,2 +1,2 @@
-from .analysis import perform_frequency_analysis
+from .analysis import execute_frequency_analysis
 from .frequency_analysis_result import FrequencyAnalysisResult
