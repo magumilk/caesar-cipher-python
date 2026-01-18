@@ -10,6 +10,9 @@ class FrequencyAnalysisResult:
         analyzed_text: 分析対象として抽出された文字列（英小文字のみ等）
         char_frequency: 文字をキー, 出現回数を値とする辞書
     """
+
+    __GRAPH_DPI = 100
+
     def __init__(self, analyzed_text: str, char_frequency: dict[str, int]):
         """コンストラクタ
 
@@ -20,7 +23,7 @@ class FrequencyAnalysisResult:
         self.__analyzed_text = analyzed_text
         self.__char_frequency = char_frequency
     
-    def to_graph(self) -> ImageTk.PhotoImage:
+    def to_graph(self, size: tuple[int, int]) -> ImageTk.PhotoImage:
         """文字の出現頻度を棒グラフ化し、Tkinter 用画像として返す。
 
         `matplotlib` で棒グラフを生成し, PNG としてメモリ上に保存した後,  
@@ -31,7 +34,7 @@ class FrequencyAnalysisResult:
         x = range(len(self.__char_frequency))
         y = self.__char_frequency.values()
 
-        fig, ax = plt.subplots()
+        fig, ax = plt.subplots(figsize=self.__px_to_inch(size), dpi=self.__GRAPH_DPI)
         ax.bar(x, y, tick_label=self.__char_frequency.keys())
 
         ofs = BytesIO()
@@ -40,6 +43,9 @@ class FrequencyAnalysisResult:
         ofs.seek(0)  # ファイルの先頭に移動
 
         return ImageTk.PhotoImage(Image.open(ofs))
+    
+    def __px_to_inch(self, size: tuple[int, int]) -> tuple[float, float]:
+        return size[0] / self.__GRAPH_DPI, size[1] / self.__GRAPH_DPI
 
     @property
     def analyzed_text(self) -> str:

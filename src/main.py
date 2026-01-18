@@ -26,26 +26,28 @@ def main():
 
     def toggle_output_console(display: Literal["CIPHER", "ANALYSIS"]):
         if display == "CIPHER":
+            analysis_result_area.pack_forget()
             output_textbox.pack(side="left", fill="both", expand=True)
         else:
+            output_textbox.pack_forget()
             analysis_result_area.pack(side="left", fill="both", expand=True)
         nonlocal is_analysis_result_area_display
         is_analysis_result_area_display = (display == "ANALYSIS")
 
     def encrypt_button_handler():
+        toggle_output_console("CIPHER")
         ciphertext = encrypt(input_textbox.get_text(), shift_scale.get_shift())
         output_textbox.set_text(ciphertext)
         print(ciphertext)
-        toggle_output_console("CIPHER")
     
     def decrypt_button_handler():
+        toggle_output_console("CIPHER")
         plaintext = decrypt(input_textbox.get_text(), shift_scale.get_shift())
         output_textbox.set_text(plaintext)
-        toggle_output_console("CIPHER")
     
     def frequency_analysis_button_handler():
-        analysis_result_area.set_output(perform_frequency_analysis(input_textbox.get_text()))
         toggle_output_console("ANALYSIS")
+        analysis_result_area.set_output(perform_frequency_analysis(input_textbox.get_text()))
 
     shift_scale = ShiftScale(config_area)
     encrypt_button = tk.Button(config_area, text="暗号化", command=encrypt_button_handler)

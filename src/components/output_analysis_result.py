@@ -18,7 +18,9 @@ class AnalysisResultArea(tk.Frame):
     
     def set_output(self, result: FrequencyAnalysisResult):
         self.__output_textbox.set_text(result.analyzed_text)
-        self.__graph.set_graph(result.to_graph())
+        self.update_idletasks()
+        size = (self.__graph.winfo_width(), self.__graph.winfo_height())
+        self.__graph.set_graph(result.to_graph(size))
 
 
 class AnalysisResultGraph(tk.Canvas):
