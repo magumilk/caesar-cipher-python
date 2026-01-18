@@ -2,7 +2,7 @@ import tkinter as tk
 from PIL import ImageTk
 
 from frequency_analysis import FrequencyAnalysisResult
-from .uneditable_text import UneditableText
+from .uneditable_text import ReadOnlyTextBox
 
 class AnalysisResultArea(tk.Frame):
     """
@@ -16,7 +16,7 @@ class AnalysisResultArea(tk.Frame):
             master (tk.Misc): 親ウィジェット
         """
         super().__init__(master)
-        self.__output_textbox = UneditableText(self)
+        self.__output_textbox = ReadOnlyTextBox(self)
         self.__graph = AnalysisResultGraph(self)
         self.grid_columnconfigure(0, weight=1, uniform="analysis")
         self.grid_columnconfigure(1, weight=1, uniform="analysis")

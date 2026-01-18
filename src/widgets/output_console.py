@@ -1,7 +1,7 @@
 import tkinter as tk
 
 from .output_analysis_result import AnalysisResultArea, FrequencyAnalysisResult
-from .uneditable_text import UneditableText
+from .uneditable_text import ReadOnlyTextBox
 
 
 class OutputConsole(tk.Frame):
@@ -17,7 +17,7 @@ class OutputConsole(tk.Frame):
             master (tk.Misc): 親ウィジェット
         """
         super().__init__(master)
-        self.__cipher_console = UneditableText(self)
+        self.__cipher_console = ReadOnlyTextBox(self)
         self.__frequency_console = AnalysisResultArea(self)
         self.grid_rowconfigure(0, weight=1)
         self.grid_columnconfigure(0, weight=1)

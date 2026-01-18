@@ -1,6 +1,6 @@
 import tkinter as tk
 
-class UneditableText(tk.Text):
+class ReadOnlyTextBox(tk.Text):
     """
     読み取り専用のテキストボックスウィジェット
     """
