@@ -55,7 +55,7 @@ def main():
     # ウィジェットの生成
     shift_scale = ShiftScale(control_area)
     encrypt_button = tk.Button(control_area, text="暗号化", command=encrypt_button_handler)
-    decrypt_button = tk.Button(control_area, text="復号化", command=decrypt_button_handler)
+    decrypt_button = tk.Button(control_area, text="復号", command=decrypt_button_handler)
     frequency_analysis_button = tk.Button(control_area, text="頻度分析", command=frequency_analysis_button_handler)
     # グリッドで配置
     shift_scale.pack(side="left", fill="both", expand=True)
